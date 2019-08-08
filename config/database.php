@@ -82,6 +82,7 @@ return [
             'prefix'   => '',
             'schema'   => 'public',
         ],
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
