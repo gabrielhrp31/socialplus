@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// import './bootstrap'
+require('./bootstrap');
 import Vue from 'vue'
 
 Vue.component('App', require('./App.vue').default);
