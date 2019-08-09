@@ -8,7 +8,11 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+        @if(env('APP_ENV')=='production')
+            <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+        @else
+            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @endif
         <style>
             a:hover{
                 text-decoration: none!important;
@@ -17,6 +21,10 @@
     </head>
     <body>
     <div id=app></div>
-    <script src="{{ secure_asset('js/app.js')}}"></script>
+    @if(env('APP_ENV')=='production')
+        <script src="{{ secure_asset('js/app.js')}}"></script>
+    @else
+        <script src="{{ asset('js/app.js')}}"></script>
+    @endif
     </body>
 </html>
