@@ -19,7 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('App', require('./App').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +27,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+
+import router from './router'
+import vuetify from './plugins/vuetify';
+import axios from 'axios'
+
+import {store} from './store';
+import {apiUrl} from "./config";
+
+Vue.config.productionTip = false;
+Vue.prototype.$http = axios;
+Vue.prototype.$apiUrl = apiUrl;
+
+/* eslint-disable no-new */
+new Vue({
+    router,
+    store,
+    vuetify,
+}).$mount('#app');
+
