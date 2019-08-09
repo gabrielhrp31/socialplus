@@ -106,7 +106,7 @@
 </template>
 
 <script>
-import Base from "@/Layouts/Base";
+import Base from "../Layouts/Base";
 
 export default {
     name: "Profile",

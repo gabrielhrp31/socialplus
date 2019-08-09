@@ -38,7 +38,7 @@
 </template>
 
 <script>
-    import Auth from "@/Layouts/Auth";
+    import Auth from "../../Layouts/Auth";
 
     export default {
         name: "Login",

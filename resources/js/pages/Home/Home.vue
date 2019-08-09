@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import ContentCard from "@/components/ContentCard";
-import Publish from "@/components/Publish";
-import Base from "@/Layouts/Base";
+import ContentCard from "../../components/ContentCard";
+import Publish from "../../components/Publish";
+import Base from "../../Layouts/Base";
 
 export default {
     name: "Home",

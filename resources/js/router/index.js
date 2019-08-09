@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/pages/Home/Home'
-import Login from "@/pages/Auth/Login";
-import Register from "@/pages/Auth/Register";
-import Profile from "@/pages/Profile";
+import Home from '../pages/Home/Home'
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register"
+import Profile from "../pages/Profile";
 
 Vue.use(Router);
 

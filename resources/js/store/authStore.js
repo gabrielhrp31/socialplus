@@ -1,6 +1,6 @@
 import axios from "axios";
-import router from "@/router";
-import { apiUrl } from "@/config";
+import router from "../router";
+import { apiUrl } from "../config";
 
 const authStore = {
     state: {

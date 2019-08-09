@@ -20,7 +20,7 @@ use App\Post;
 Route::post('/register', 'API\AuthController@register');
 Route::post('/login', 'API\AuthController@login');
 
-Route::middleware('auth:api','cors')->group(function () {
+Route::middleware('auth:api')->group(function () {
 
     Route::put ('user/update', 'API\UserController@update');
 
