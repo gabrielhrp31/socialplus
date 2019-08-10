@@ -4,15 +4,15 @@
         <v-content>
             <slot></slot>
         </v-content>
-        <Footer color="accent">
-            <v-subheader class="white--text">Links</v-subheader>
-            <v-list-item
-                ><a href="#" class="white--text">Link 1</a></v-list-item
-            >
-            <v-list-item
-                ><a href="#" class="white--text">Link 1</a></v-list-item
-            >
-        </Footer>
+<!--        <Footer color="accent">-->
+<!--            <v-subheader class="white&#45;&#45;text">Links</v-subheader>-->
+<!--            <v-list-item-->
+<!--                ><a href="#" class="white&#45;&#45;text">Link 1</a></v-list-item-->
+<!--            >-->
+<!--            <v-list-item-->
+<!--                ><a href="#" class="white&#45;&#45;text">Link 1</a></v-list-item-->
+<!--            >-->
+<!--        </Footer>-->
     </v-app>
 </template>
 

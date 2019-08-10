@@ -15,8 +15,8 @@
                 </v-layout>
                 <v-layout class="ma-8" >
                     <v-flex>
-                        <v-btn v-if="getMoreUrl" outlined block color="primary" @click="getMore()"><v-icon>mdi-plus</v-icon>Ver mais posts...</v-btn>
-                        <v-btn v-else text block color="accent"><v-icon>mdi-emoticon-sad-outline</v-icon>Você viu todos os posts!</v-btn>
+                        <v-btn v-if="getMoreUrl" outlined block color="primary" @click="getMore()" :loading="loadingPosts"><v-icon>mdi-plus</v-icon>Ver mais posts...</v-btn>
+                        <v-btn v-else text block color="accent" ><v-icon>mdi-emoticon-sad-outline</v-icon>Você viu todos os posts!</v-btn>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -38,6 +38,7 @@ export default {
     },
     data: () => ({
         getMoreUrl: '',
+        loadingPosts: false,
     }),
     computed:{
         posts(){
@@ -65,6 +66,15 @@ export default {
                 .catch(error=>{
 
                 });
+        },
+        scroll(){
+            window.onscroll = () => {
+                let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+                if (bottomOfWindow && !this.loadingPosts) {
+                    this.loadingPosts =true;
+                    this.getMore();
+                }
+            };
         }
     },
     created() {
@@ -83,11 +93,15 @@ export default {
                 if(response.data.status){
                     this.$store.commit('setTimelinePosts',response.data.posts.data);
                     this.getMoreUrl = response.data.posts.next_page_url;
+                    this.loadingPosts = false;
                 }
             })
             .catch(error=>{
 
         });
+    },
+    mounted() {
+        this.scroll();
     }
 };
 </script>
