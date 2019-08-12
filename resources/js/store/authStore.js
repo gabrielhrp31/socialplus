@@ -147,9 +147,7 @@ const authStore = {
                         }
                     )
                     .catch(() => {
-                        console.log("else");
                         localStorage.clear();
-                        router.push("/login");
                     });
             } else {
                 router.push("/login");
@@ -172,7 +170,6 @@ const authStore = {
                         }
                     )
                     .catch(() => {
-                        console.log("else");
                         localStorage.clear();
                         router.push(routeName);
                     });

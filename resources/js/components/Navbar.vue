@@ -1,5 +1,5 @@
 <template>
-    <div id="navbar">
+    <div id="navbarRoot">
         <v-navigation-drawer
             app
             :expand-on-hover="true"
@@ -31,7 +31,7 @@
                     <v-list-item
                         v-for="(item, i) in items"
                         :key="i"
-                        :to="item.link ? item.link : '#'"
+                        :to="item.link ? getLink(item) : '#'"
                     >
                         <v-list-item-icon>
                             <v-icon v-text="item.icon"></v-icon>
@@ -89,9 +89,10 @@ export default {
         drawer: null,
         item: 0,
         items: [
-            { text: "Inicio", icon: "mdi-home", link: "/" },
+            { text: "Feed", icon: "mdi-home", link: "/" },
+            { text: "Meu Feed", icon: "mdi-file", link: "/user/" },
             { text: "Perfil", icon: "mdi-account", link: "/profile" },
-            { text: "Amigos", icon: "mdi-account-multiple", link: "/friends" }
+            { text: "Procurar", icon: "mdi-account-search", link: "/find/user/" }
         ]
     }),
     computed: {
@@ -101,11 +102,17 @@ export default {
         appName(){
             console.log(this.$store);
             return this.$store.state.appName;
-        }
+        },
     },
     methods: {
         logout() {
             this.$store.commit("logout");
+        },
+        getLink(item){
+            if(item.link==='/user/'){
+                return item.link+this.user.id+'/';
+            }
+            return item.link;
         }
     }
 };

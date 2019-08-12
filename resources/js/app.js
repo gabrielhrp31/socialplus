@@ -33,6 +33,13 @@ Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 Vue.prototype.$apiUrl = apiUrl;
 
+router.afterEach((to, from) => {
+    Vue.nextTick( () => {
+        console.log(to);
+        document.title = to.meta.title ? store.state.appName+" - "+to.meta.title :store.state.appName;
+    });
+});
+
 const app = new Vue({
     el: '#app',
     router,

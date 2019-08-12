@@ -60,6 +60,6 @@ class AuthController extends Controller {
     }
 
     public function checkLogin(Request $request){
-        return ["status"=>true];
+        return $request->user();
     }
 }

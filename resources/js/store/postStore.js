@@ -6,6 +6,7 @@ const postStore = {
     state: {
         timelinePosts:[],
         profilePosts: [],
+        profileUser: [],
         likedPosts: []
     },
     mutations: {
@@ -25,7 +26,27 @@ const postStore = {
             //this is for vue reaction
             state.timelinePosts.push('dog-nail');
             state.timelinePosts.splice(-1,1);
-        }
+        },
+        setProfilePosts(state, posts){
+            state.profilePosts = posts;
+        },
+        setProfileUser(state, user){
+            state.profileUser = user;
+        },
+        addProfilePosts(state, posts){
+            state.profilePosts.push(...posts);
+        },
+        alterProfilePost(state,newPost){
+            state.profilePosts.forEach((post,index)=>{
+                if(post.id===newPost.id){
+                    state.profilePosts[index] = newPost;
+                }
+            });
+
+            //this is for vue reaction
+            state.profilePosts.push('dog-nail');
+            state.profilePosts.splice(-1,1);
+        },
     },
 };
 

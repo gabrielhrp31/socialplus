@@ -9,6 +9,26 @@ const store = new Vuex.Store({
     state:{
         appName:"+Social",
         appDescription: "Teste de Descrição",
+        usersFound:null,
+    },
+    mutations:{
+        alterUsersFound(state, newUserData){
+
+            state.usersFound.forEach((user,index)=>{
+                if(user.id===newUserData.id){
+                    state.usersFound[index] = newUserData;
+                }
+            });
+
+            //this is for vue reaction
+            state.usersFound.push('dog-nail');
+            state.usersFound.splice(-1,1);
+
+            console.log(state.usersFound);
+        },
+        setUsersFound(state, users){
+            state.usersFound = users;
+        }
     },
     modules: {
         auth: authStore,

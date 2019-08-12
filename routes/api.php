@@ -22,19 +22,39 @@ Route::post('/login', 'API\AuthController@login');
 
 Route::middleware('auth:api')->group(function () {
 
-    Route::put ('user/update', 'API\UserController@update');
 
     Route::post('checkLogin', 'API\AuthController@checkLogin');
 
-    Route::get('posts', 'API\PostController@list');
 
-    Route::post('post/create', 'API\PostController@create');
+    Route::prefix('user')->group(function (){
+        Route::put ('update', 'API\UserController@update');
 
-    Route::put('post/like', 'API\PostController@like');
+        Route::get('{id?}', 'API\UserController@profile');
 
-    Route::post('post/comment', 'API\PostController@comment');
+        Route::post('find', 'API\UserController@find');
 
-    Route::post('post/comment/delete', 'API\PostController@deleteComment');
+        Route::post('follow/{id}', 'API\UserController@follow');
+
+        Route::post('followOnly/{id}/{idUserPage?}', 'API\UserController@followOnly');
+    });
+
+
+    Route::prefix('posts')->group(function (){
+
+        Route::get('', 'API\PostController@list');
+
+    });
+
+
+    Route::prefix('post')->group(function () {
+        Route::post('create', 'API\PostController@create');
+
+        Route::put('like', 'API\PostController@like');
+
+        Route::post('comment', 'API\PostController@comment');
+
+        Route::post('comment/delete', 'API\PostController@deleteComment');
+    });
 });
 
 Route::get('/testes',function (){

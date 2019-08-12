@@ -2,17 +2,25 @@
     <div id="content-card">
         <v-card class="mx-auto mb-8">
             <v-list-item>
-                <v-list-item-avatar
-                    ><v-img :src="user.image"></v-img
-                ></v-list-item-avatar>
+                <router-link :to="'/user/'+user.id" class="name" >
+                    <v-list-item-avatar
+                        ><v-img :src="user.image"></v-img
+                    ></v-list-item-avatar>
+                </router-link>
                 <v-list-item-content>
-                    <v-list-item-title class="headline">{{
-                        user.name
-                    }}</v-list-item-title>
+                    <v-list-item-title class="headline">
+                        <router-link :to="'/user/'+user.id" class="name" >{{
+                            user.name
+                        }}
+                        </router-link>
+                    </v-list-item-title>
                     <v-list-item-subtitle>{{
                         post.created_at
                     }}</v-list-item-subtitle>
                 </v-list-item-content>
+                <v-list-item-icon v-if="userLogged.id ===     user.id ">
+                    <v-btn icon color="primary"><v-icon>mdi-delete</v-icon></v-btn>
+                </v-list-item-icon>
             </v-list-item>
             <v-img v-if="post.image" class="white--text" :src="post.image">
                 <v-card-title class="align-end fill-height">{{
@@ -61,12 +69,14 @@
                                     <v-divider
                                     ></v-divider>
                                     <v-list-item :key="comment.id">
-                                        <v-list-item-avatar>
-                                            <v-img :src="comment.user.image"></v-img>
-                                        </v-list-item-avatar>
+                                        <router-link :to="'/user/'+user.id" >
+                                            <v-list-item-avatar>
+                                                <v-img :src="comment.user.image"></v-img>
+                                            </v-list-item-avatar>
+                                        </router-link>
 
                                         <v-list-item-content>
-                                            <v-list-item-subtitle class="text--primary"><b>{{comment.user.name}}</b> - {{ comment.created_at }}</v-list-item-subtitle>
+                                            <v-list-item-subtitle class="text--primary"><router-link :to="'/user/'+user.id" class="name" ><b>{{comment.user.name}}</b></router-link> - {{ comment.created_at }}</v-list-item-subtitle>
                                             <v-list-item-subtitle>{{comment.text}}</v-list-item-subtitle>
                                         </v-list-item-content>
                                         <v-list-item-icon v-if="userLogged.id===comment.user.id || userLogged.id ===     user.id ">
@@ -108,7 +118,11 @@ export default {
                 }
             }).then(response=>{
                 if(response.data.status){
-                    this.$store.commit('alterTimelinePost',response.data.post);
+                    if(!this.$route.params.id){
+                        this.$store.commit('alterTimelinePost',response.data.post);
+                    }else{
+                        this.$store.commit('alterProfilePost',response.data.post);
+                    }
                 }
             }).catch(error=>{
                 console.log(error);
@@ -129,7 +143,11 @@ export default {
                 }
             }).then(response=>{
                 if(response.data.status){
-                    this.$store.commit('alterTimelinePost',response.data.post);
+                    if(!this.$route.params.id){
+                        this.$store.commit('alterTimelinePost',response.data.post);
+                    }else{
+                        this.$store.commit('alterProfilePost',response.data.post);
+                    }
                     this.comment_text = '';
                 }
             }).catch(error=>{
@@ -146,7 +164,11 @@ export default {
                 }
             }).then(response=>{
                 if(response.data.status){
-                    this.$store.commit('alterTimelinePost',response.data.post);
+                    if(!this.$route.params.id){
+                        this.$store.commit('alterTimelinePost',response.data.post);
+                    }else{
+                        this.$store.commit('alterProfilePost',response.data.post);
+                    }
                 }
             }).catch(error=>{
                 console.log(error);
@@ -157,7 +179,8 @@ export default {
 </script>
 
 <style scoped>
-    .v-icon{
-        cursor: pointer;
+    .name{
+        text-decoration: none!important;
+        color: #000;
     }
 </style>

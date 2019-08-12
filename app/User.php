@@ -2,6 +2,7 @@
 
 namespace App;
 
+use function GuzzleHttp\Psr7\str;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -54,13 +55,17 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Post', 'likes', 'user_id', 'post_id');
     }
 
-    public function friends(){
+    public function followed(){
         return $this->belongsToMany('App\User', 'follows', 'user_id', 'follow_id');
+    }
+
+    public function followers(){
+        return $this->belongsToMany('App\User', 'follows', 'follow_id', 'user_id');
     }
 
     public function getImageAttribute($value){
         $url = 'https://' . env('AWS_BUCKET') . '.s3.amazonaws.com/';
-
+        $value = str_replace(DIRECTORY_SEPARATOR, '/',$value);
         return ($url.$value);
     }
 }
