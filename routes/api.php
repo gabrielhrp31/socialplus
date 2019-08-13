@@ -29,6 +29,7 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('user')->group(function (){
         Route::put ('update', 'API\UserController@update');
 
+
         Route::get('{id?}', 'API\UserController@profile');
 
         Route::post('find', 'API\UserController@find');
@@ -48,6 +49,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::prefix('post')->group(function () {
         Route::post('create', 'API\PostController@create');
+
+        Route::post ('delete/{id}', 'API\PostController@delete');
 
         Route::put('like', 'API\PostController@like');
 

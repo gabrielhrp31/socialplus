@@ -2,12 +2,20 @@ import axios from "axios";
 import router from "../router";
 import { apiUrl } from "../config";
 
+function arrayRemove(arr, value) {
+
+    return arr.filter(function(ele){
+        return ele.id != value;
+    });
+
+}
+
 const postStore = {
     state: {
         timelinePosts:[],
         profilePosts: [],
         profileUser: [],
-        likedPosts: []
+        likedPosts: [],
     },
     mutations: {
         setTimelinePosts(state, posts){
@@ -26,6 +34,9 @@ const postStore = {
             //this is for vue reaction
             state.timelinePosts.push('dog-nail');
             state.timelinePosts.splice(-1,1);
+        },
+        deleteTimelinePost(state,id) {
+            state.timelinePosts = arrayRemove(state.profilePosts, id);
         },
         setProfilePosts(state, posts){
             state.profilePosts = posts;
@@ -46,6 +57,9 @@ const postStore = {
             //this is for vue reaction
             state.profilePosts.push('dog-nail');
             state.profilePosts.splice(-1,1);
+        },
+        deleteProfilePost(state,id) {
+            state.profilePosts = arrayRemove(state.profilePosts, id);
         },
     },
 };

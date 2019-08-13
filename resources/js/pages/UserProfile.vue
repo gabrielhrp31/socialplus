@@ -65,6 +65,9 @@
                     <v-btn v-else text block color="accent" ><v-icon>mdi-emoticon-sad-outline</v-icon>Você viu todos os posts!</v-btn>
                 </v-flex>
             </v-layout>
+            <v-overlay :value="loading">
+                <v-progress-circular indeterminate size="64"></v-progress-circular>
+            </v-overlay>
         </Base>
     </div>
 </template>
@@ -86,6 +89,7 @@
             loadingPosts: false,
             dialogFollowers: false,
             dialogFollowed: false,
+            loading: false,
         }),
         computed:{
             posts(){
@@ -150,6 +154,7 @@
                     });
             },
             updatePage(){
+                this.loading = true;
                 this.dialogFollowed =false;
                 this.dialogFollowers = false;
                 this.$http
@@ -168,10 +173,13 @@
                             this.$store.commit('setProfileUser',response.data.user);
                             this.getMoreUrl = response.data.posts.next_page_url;
                             this.loadingPosts = false;
+                            this.loading = false;
                         }
                     })
                     .catch(error=>{
-
+                        this.loadingPosts = false;
+                        this.loading = false;
+                        console.log(error);
                     });
             }
         },

@@ -2279,6 +2279,23 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    deletePost: function deletePost() {
+      var _this4 = this;
+
+      this.$http.post(this.$apiUrl + 'post/delete/' + this.post.id, {}, {
+        headers: {
+          authorization: "Bearer " + this.$store.state.auth.user.token
+        }
+      }).then(function (response) {
+        if (!_this4.$route.params.id) {
+          _this4.$store.commit('deleteTimelinePost', _this4.post.id);
+        } else {
+          _this4.$store.commit('deleteProfilePost', _this4.post.id);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -3353,6 +3370,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3368,7 +3388,8 @@ __webpack_require__.r(__webpack_exports__);
       getMoreUrl: '',
       loadingPosts: false,
       dialogFollowers: false,
-      dialogFollowed: false
+      dialogFollowed: false,
+      loading: false
     };
   },
   computed: {
@@ -3427,6 +3448,7 @@ __webpack_require__.r(__webpack_exports__);
     updatePage: function updatePage() {
       var _this4 = this;
 
+      this.loading = true;
       this.dialogFollowed = false;
       this.dialogFollowers = false;
       this.$http.get(this.$apiUrl + "user/" + this.$route.params.id, {
@@ -3441,8 +3463,13 @@ __webpack_require__.r(__webpack_exports__);
 
           _this4.getMoreUrl = response.data.posts.next_page_url;
           _this4.loadingPosts = false;
+          _this4.loading = false;
         }
-      })["catch"](function (error) {});
+      })["catch"](function (error) {
+        _this4.loadingPosts = false;
+        _this4.loading = false;
+        console.log(error);
+      });
     }
   },
   watch: {
@@ -5764,7 +5791,10 @@ var render = function() {
                     [
                       _c(
                         "v-btn",
-                        { attrs: { icon: "", color: "primary" } },
+                        {
+                          attrs: { icon: "", color: "primary" },
+                          on: { click: _vm.deletePost }
+                        },
                         [_c("v-icon", [_vm._v("mdi-delete")])],
                         1
                       )
@@ -7807,6 +7837,17 @@ var render = function() {
                 ],
                 1
               )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-overlay",
+            { attrs: { value: _vm.loading } },
+            [
+              _c("v-progress-circular", {
+                attrs: { indeterminate: "", size: "64" }
+              })
             ],
             1
           )
@@ -61555,6 +61596,13 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 
 
+
+function arrayRemove(arr, value) {
+  return arr.filter(function (ele) {
+    return ele.id != value;
+  });
+}
+
 var postStore = {
   state: {
     timelinePosts: [],
@@ -61581,6 +61629,9 @@ var postStore = {
       state.timelinePosts.push('dog-nail');
       state.timelinePosts.splice(-1, 1);
     },
+    deleteTimelinePost: function deleteTimelinePost(state, id) {
+      state.timelinePosts = arrayRemove(state.profilePosts, id);
+    },
     setProfilePosts: function setProfilePosts(state, posts) {
       state.profilePosts = posts;
     },
@@ -61601,6 +61652,9 @@ var postStore = {
 
       state.profilePosts.push('dog-nail');
       state.profilePosts.splice(-1, 1);
+    },
+    deleteProfilePost: function deleteProfilePost(state, id) {
+      state.profilePosts = arrayRemove(state.profilePosts, id);
     }
   }
 };

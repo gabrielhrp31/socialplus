@@ -18,8 +18,8 @@
                         post.created_at
                     }}</v-list-item-subtitle>
                 </v-list-item-content>
-                <v-list-item-icon v-if="userLogged.id ===     user.id ">
-                    <v-btn icon color="primary"><v-icon>mdi-delete</v-icon></v-btn>
+                <v-list-item-icon v-if="userLogged.id === user.id">
+                    <v-btn icon color="primary" @click="deletePost"><v-icon>mdi-delete</v-icon></v-btn>
                 </v-list-item-icon>
             </v-list-item>
             <v-img v-if="post.image" class="white--text" :src="post.image">
@@ -173,6 +173,25 @@ export default {
             }).catch(error=>{
                 console.log(error);
             });
+        },
+        deletePost(){
+            this.$http
+                .post(this.$apiUrl+'post/delete/'+this.post.id,{},{
+                    headers: {
+                        authorization:
+                            "Bearer " + this.$store.state.auth.user.token
+                    }
+                })
+                .then((response)=>{
+                    if(!this.$route.params.id){
+                        this.$store.commit('deleteTimelinePost',this.post.id);
+                    }else{
+                        this.$store.commit('deleteProfilePost',this.post.id);
+                    }
+                })
+                .catch((error)=>{
+                    console.log(error);
+                });
         }
     }
 };

@@ -16,7 +16,7 @@ class UserController extends Controller
     
     protected function checkFollowing($loggedUser, $users){
         foreach ($users as $user) {
-            $following = $users = DB::table('follows')->where([
+            $following = DB::table('follows')->where([
                 ['user_id', '=', $loggedUser->id],
                 ['follow_id','=',$user->id]
             ])->count();

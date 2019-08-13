@@ -7,6 +7,7 @@ use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -53,7 +54,38 @@ class PostController extends Controller
 
 
         foreach ($posts as $post){
-            $liked  = $user->likes()->find($post->id);
+            $liked  =  DB::table('likes')->where([
+                ['user_id', '=', $user->id],
+                ['post_id', '=', $post->id]
+            ])->count();
+            if($liked){
+                $post->liked = true;
+            }else{
+                $post->liked = false;
+            }
+        }
+
+        return ['status'=>true, 'posts'=>$posts];
+    }
+
+    public function delete(Request $request, $id){
+        $data = $request->all();
+
+        $user = $request->user();
+
+
+        $post = Post::find($id);
+
+        $post->delete();
+
+        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(5);
+
+
+        foreach ($posts as $post){
+            $liked  =  DB::table('likes')->where([
+                ['user_id', '=', $user->id],
+                ['post_id', '=', $post->id]
+            ])->count();
             if($liked){
                 $post->liked = true;
             }else{
@@ -68,8 +100,6 @@ class PostController extends Controller
 
         $user = $request->user();
 
-
-
         $posts = Post::withCount('likes', 'comments')
             ->with('user', 'likes',  'comments', 'comments.user')
             ->join('follows','follows.follow_id','=','posts.user_id')
@@ -77,14 +107,15 @@ class PostController extends Controller
             ->whereOr('post.user_id','=',$user->id)
             ->orderBy('created_at', 'desc')->paginate(5);
 
-        $user = $request->user();
-
         foreach ($posts as $post){
-            $liked  = $user->likes()->find($post->id);
+            $liked  =  DB::table('likes')->where([
+                ['user_id', '=', $user->id],
+                ['post_id', '=', $post->id]
+            ])->count();
             if($liked){
-                $post->liked = true;
+                $post->liked = $liked;
             }else{
-                $post->liked = false;
+                $post->liked = $liked;
             }
         }
 
@@ -102,7 +133,10 @@ class PostController extends Controller
 
             $post = Post::withCount('likes', 'comments')->with('user', 'likes', 'comments', 'comments.user')->find($data['post_id']);
 
-            $liked  = $user->likes()->find($post->id);
+            $liked  = DB::table('likes')->where([
+                ['user_id', '=', $user->id],
+                ['post_id', '=', $post->id]
+            ])->count();
 
             if($liked){
                 $post->liked = true;
