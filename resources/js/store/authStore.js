@@ -32,7 +32,7 @@ const authStore = {
         updateProfile(state) {
             axios
                 .put(
-                    apiUrl + "user/update/",
+                    apiUrl + "user/update",
                     {
                         name: state.user.name,
                         email: state.user.email,
@@ -68,7 +68,7 @@ const authStore = {
         },
         register(state) {
             axios
-                .post(apiUrl + "register/", {
+                .post(apiUrl + "register", {
                     name: state.user.name,
                     email: state.user.email,
                     password: state.user.password,
@@ -93,7 +93,7 @@ const authStore = {
         },
         login(state) {
             axios
-                .post(apiUrl + "login/", {
+                .post(apiUrl + "login", {
                     email: state.user.email,
                     password: state.user.password
                 })
@@ -161,7 +161,7 @@ const authStore = {
                 router.push("/");
                 axios
                     .post(
-                        apiUrl + "checkLogin/",
+                        apiUrl + "checkLogin",
                         {},
                         {
                             headers: {
