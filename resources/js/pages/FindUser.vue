@@ -36,7 +36,7 @@
             find(){
                 this.$http
                     .post(
-                        this.$apiUrl+'user/find/',{
+                        this.$apiUrl+'user/find',{
                             search: this.search
                         },
                         {

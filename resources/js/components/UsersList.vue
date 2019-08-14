@@ -58,7 +58,7 @@
                 if(this.$route.params.id){
                     url = this.$apiUrl+'user/followOnly/'+id+'/'+this.$route.params.id
                 }else{
-                    url = this.$apiUrl+'user/followOnly/'+id+'/'
+                    url = this.$apiUrl+'user/followOnly/'+id
                 }
                 this.$http
                     .post(url
