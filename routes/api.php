@@ -17,8 +17,8 @@ use App\Post;
 |
 */
 
-Route::post('/register', 'API\AuthController@register');
-Route::post('/login', 'API\AuthController@login');
+Route::post('/register/', 'API\AuthController@register');
+Route::post('/login/', 'API\AuthController@login');
 
 Route::middleware('auth:api')->group(function () {
 
