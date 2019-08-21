@@ -109,7 +109,7 @@ export default {
     methods:{
         like(){
             this.$http.put(this.$apiUrl+'post/like',{
-                user_id: this.user.id,
+                user_id: this.userLogged.id,
                 post_id: this.post.id,
             },{
                 headers: {
@@ -133,7 +133,7 @@ export default {
         },
         sendComment(){
             this.$http.post(this.$apiUrl+'post/comment',{
-                user_id: this.user.id,
+                user_id: this.userLogged.id,
                 post_id: this.post.id,
                 text: this.comment_text,
             },{
