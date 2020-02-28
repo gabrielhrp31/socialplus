@@ -14,10 +14,12 @@
                             continuous
                             cycle
                         >
-                            <v-toolbar class="transparent" flat absolute>
-                                <!--slot para titulo-->
-                                <slot name="top"></slot>
-                            </v-toolbar>
+                            <v-container style="position: absolute;z-index:100;">
+                                <v-row>
+                                    <slot name="top"></slot>
+                                    <!--slot para titulo-->
+                                </v-row>
+                            </v-container>
                             <v-carousel-item
                                 v-for="(item, i) in items"
                                 :key="i"

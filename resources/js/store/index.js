@@ -23,8 +23,6 @@ const store = new Vuex.Store({
             //this is for vue reaction
             state.usersFound.push('dog-nail');
             state.usersFound.splice(-1,1);
-
-            console.log(state.usersFound);
         },
         setUsersFound(state, users){
             state.usersFound = users;

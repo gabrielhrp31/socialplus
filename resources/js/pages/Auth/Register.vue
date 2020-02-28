@@ -1,13 +1,13 @@
 <template>
     <Auth>
         <template v-slot:top>
-            <v-toolbar-title>
-                Cadastrar
-            </v-toolbar-title>
+            <span class="white--text ml-4 font-weight-bold">
+                    Cadastrar
+            </span>
             <v-spacer></v-spacer>
-            <v-btn text small to="/login"
-                ><v-icon>mdi-arrow-left</v-icon> Voltar</v-btn
-            >
+            <v-btn text small to="/login">
+                <v-icon>mdi-arrow-left</v-icon> Voltar
+            </v-btn>
         </template>
         <v-form>
             <v-text-field
@@ -49,8 +49,13 @@
             ></v-text-field>
         </v-form>
         <template v-slot:actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" @click="register">Cadastrar</v-btn>
+            <v-container class="pt-0">
+                <v-row>
+                    <v-col cols="12" class="pt-0">
+                        <v-btn color="primary" block @click="register">Cadastrar</v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
         </template>
     </Auth>
 </template>

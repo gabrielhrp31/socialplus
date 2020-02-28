@@ -18,7 +18,6 @@ const authStore = {
     },
     mutations: {
         storeImage(state, e) {
-            console.log(e);
             let file = e.target.files || e.target.dataTransfer.files;
             if (!file.length) {
                 return;

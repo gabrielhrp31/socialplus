@@ -7,13 +7,14 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    
+
     protected function checkFollowing($loggedUser, $users){
         foreach ($users as $user) {
             $following = DB::table('follows')->where([
@@ -27,8 +28,8 @@ class UserController extends Controller
             }
         }
     }
-    
-    
+
+
     public function profile(Request $request, $id=null){
         if(isset($id)){
             $user = User::with('followed','followers')->find($id);
@@ -113,19 +114,11 @@ class UserController extends Controller
             $file = str_replace('data:image/'.$ext.';base64,','',$data['image']);
             $file = base64_decode($file);
 
-            $amazonUrl = str_replace(DIRECTORY_SEPARATOR, '/',
-                str_replace('https://' . env('AWS_BUCKET') . '.s3.amazonaws.com/','',$user->image));
-
-
-                $result = Storage::disk('s3')->exists($amazonUrl);
-
-            if($result){
-                Storage::disk('s3')->delete($amazonUrl);
+            if(!is_dir($imageFolder)) {
+                File::makeDirectory($imageFolder, $mode = 0755, true, true);
             }
 
-            if(!$result){
-                Storage::disk('s3')->put($imageURL, $file, 'public');
-            }
+            Storage::put($imageURL, $file, 'public');
 
             $user->image = $imageURL;
 

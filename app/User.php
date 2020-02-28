@@ -64,8 +64,6 @@ class User extends Authenticatable
     }
 
     public function getImageAttribute($value){
-        $url = 'https://' . env('AWS_BUCKET') . '.s3.amazonaws.com/';
-        $value = str_replace(DIRECTORY_SEPARATOR, '/',$value);
-        return ($url.$value);
+        return (asset($value));
     }
 }
