@@ -73,7 +73,7 @@ class User extends Authenticatable
     }
 
     public function getImageAttribute($value){
-        return (asset($value));
+        return asset($value);
     }
 
     public function getImagePathAttribute(){

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e3b0f73d-db01-40a9-bdc0-fdec750f9a05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +27,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -290,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565754268647</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feed consertado, barra lateral minificada e edição de perfil e imagem alterada">
+      <created>1585686022294</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1585686022294</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,10 +332,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="feed consertado, barra lateral minificada e edição de perfil e imagem alterada" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585684153434">
+    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585686218846">
       <screen x="0" y="0" width="2560" height="1080" />
     </state>
-    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1080@0.0.2560.1080" timestamp="1585684153434" />
+    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1080@0.0.2560.1080" timestamp="1585686218846" />
+    <state x="1396" y="70" key="CommitChangelistDialog2" timestamp="1585686022108">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state x="1396" y="70" key="CommitChangelistDialog2/0.0.2560.1080@0.0.2560.1080" timestamp="1585686022108" />
     <state width="1218" height="284" key="GridCell.Tab.0.bottom" timestamp="1585685702533">
       <screen x="0" y="0" width="2560" height="1080" />
     </state>
@@ -343,6 +360,10 @@
       <screen x="0" y="0" width="2560" height="1080" />
     </state>
     <state width="299" height="606" key="HiddenNamespacesPopup/0.0.2560.1080@0.0.2560.1080" timestamp="1585684128558" />
+    <state x="1516" y="277" key="Vcs.Push.Dialog.v2" timestamp="1585686024430">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state x="1516" y="277" key="Vcs.Push.Dialog.v2/0.0.2560.1080@0.0.2560.1080" timestamp="1585686024430" />
     <state x="917" y="371" key="com.intellij.ide.util.TipDialog" timestamp="1585682377566">
       <screen x="0" y="0" width="2560" height="1080" />
     </state>
