@@ -8,8 +8,9 @@
                 <v-flex xs8 sm5  lg4 class="ml-5">
                     <h3 class="muted">{{profileUser.name}}</h3>
                     <h4 class="mt-1 muted">{{profileUser.email}}</h4>
-                    <h5 class="mt-4" @click="profileUser.followers.length>0 ? dialogFollowers=true:false"><b>{{profileUser.followers_count}}</b> Seguidores</h5>
-                    <h5 class="mt-2" @click="profileUser.followed.length>0 ? dialogFollowed=true:false"><b>{{profileUser.followed_count}}</b> Seguindo</h5>
+                    <v-btn color="primary" class="mt-2"  small rounded  to="/profile"><v-icon>mdi-account-edit</v-icon> Editar</v-btn>
+                    <h5 class="mt-4" style="cursor:pointer;" @click="profileUser.followers.length>0 ? dialogFollowers=true:false"><b>{{profileUser.followers_count}}</b> Seguidores</h5>
+                    <h5 class="mt-2" style="cursor:pointer;" @click="profileUser.followed.length>0 ? dialogFollowed=true:false"><b>{{profileUser.followed_count}}</b> Seguindo</h5>
                     <v-dialog v-model="dialogFollowers" persistent max-width="290">
                         <v-card>
                             <v-card-title class="headline">

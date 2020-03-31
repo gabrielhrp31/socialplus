@@ -7,14 +7,14 @@
             width="200"
         >
             <v-list>
-                <v-list-item>
+                <v-list-item class="px-0 d-flex justify-center">
                     <v-list-item-avatar>
                         <v-img :src="user.image"></v-img>
                     </v-list-item-avatar>
                     <!--<span @click="drawer=!drawer"><v-icon small color="danger">mdi-close</v-icon></span>-->
                 </v-list-item>
 
-                <v-list-item link>
+                <v-list-item link to="/profile">
                     <v-list-item-content>
                         <v-list-item-title class="title">{{
                             user.name
@@ -88,16 +88,17 @@ export default {
     data: () => ({
         drawer: null,
         item: 0,
-        items: [
-            { text: "Feed", icon: "mdi-home", link: "/" },
-            { text: "Meu Feed", icon: "mdi-file", link: "/user/" },
-            { text: "Perfil", icon: "mdi-account", link: "/profile" },
-            { text: "Procurar", icon: "mdi-account-search", link: "/find/user/" }
-        ]
     }),
     computed: {
         user() {
             return this.$store.state.auth.user;
+        },
+        items(){
+            return [
+                { text: "Feed", icon: "mdi-home", link: "/" },
+                { text: "Perfil", icon: "mdi-account", link:`/user/${this.user.id}` },
+                { text: "Procurar", icon: "mdi-account-search", link: "/find/user/" }
+            ]
         },
         appName(){
             console.log(this.$store);

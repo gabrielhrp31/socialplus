@@ -103,8 +103,8 @@ class PostController extends Controller
         $posts = Post::withCount('likes', 'comments')
             ->with('user', 'likes',  'comments', 'comments.user')
             ->join('follows','follows.follow_id','=','posts.user_id')
-            ->where('follows.user_id','=',$user->id)
-            ->whereOr('post.user_id','=',$user->id)
+            ->where('posts.user_id',$user->id)
+            ->orWhere('follows.user_id',$user->id)
             ->orderBy('created_at', 'desc')->paginate(5);
 
         foreach ($posts as $post){

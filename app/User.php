@@ -31,6 +31,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that should be appended to class, its virtual attribute
+     *
+     * @var array
+     */
+    protected $appends = [
+        'image_path',
+    ];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
@@ -65,5 +74,9 @@ class User extends Authenticatable
 
     public function getImageAttribute($value){
         return (asset($value));
+    }
+
+    public function getImagePathAttribute(){
+        return str_replace(asset(''),'',$this->image);
     }
 }

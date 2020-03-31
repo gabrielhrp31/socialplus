@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3b0f73d-db01-40a9-bdc0-fdec750f9a05" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/social_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/social_api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Auth.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Navbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Auth/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/Auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Auth/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/authStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/authStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/UserProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/UserProfile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +27,20 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -150,15 +165,15 @@
       <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="675" />
-    <option name="y" value="-8" />
-    <option name="width" value="699" />
-    <option name="height" value="784" />
-  </component>
   <component name="ProjectId" id="1YPYTLb50Begl7vP7FeeJc4w0hr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -178,24 +193,23 @@
       <recent name="D:\Users\gabri\Documentos\SPA VueJS API Laravel\social_api\resources\lang\pt-BR" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.watch">
     <configuration default="true" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="prod" />
       </scripts>
       <node-interpreter value="project" />
       <package-manager value="npm" />
@@ -213,6 +227,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.prod" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -247,6 +266,7 @@
       <workItem from="1565752102137" duration="3633000" />
       <workItem from="1582845703915" duration="179000" />
       <workItem from="1582845899262" duration="3198000" />
+      <workItem from="1585682376533" duration="3280000" />
     </task>
     <task id="LOCAL-00001" summary="mudando link para o de produção">
       <created>1565752233063</created>
@@ -309,6 +329,40 @@
     <MESSAGE value="removendo / das rotas do authStore e gerando cod de produção" />
     <MESSAGE value="alterando titulo da página" />
     <option name="LAST_COMMIT_MESSAGE" value="alterando titulo da página" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585684153434">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1080@0.0.2560.1080" timestamp="1585684153434" />
+    <state width="1218" height="284" key="GridCell.Tab.0.bottom" timestamp="1585685702533">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state width="1218" height="284" key="GridCell.Tab.0.bottom/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702533" />
+    <state width="1218" height="284" key="GridCell.Tab.0.center" timestamp="1585685702531">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state width="1218" height="284" key="GridCell.Tab.0.center/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702531" />
+    <state width="1218" height="284" key="GridCell.Tab.0.left" timestamp="1585685702530">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state width="1218" height="284" key="GridCell.Tab.0.left/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702530" />
+    <state width="1218" height="284" key="GridCell.Tab.0.right" timestamp="1585685702532">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state width="1218" height="284" key="GridCell.Tab.0.right/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702532" />
+    <state width="299" height="606" key="HiddenNamespacesPopup" timestamp="1585684128558">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state width="299" height="606" key="HiddenNamespacesPopup/0.0.2560.1080@0.0.2560.1080" timestamp="1585684128558" />
+    <state x="917" y="371" key="com.intellij.ide.util.TipDialog" timestamp="1585682377566">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state x="917" y="371" key="com.intellij.ide.util.TipDialog/0.0.2560.1080@0.0.2560.1080" timestamp="1585682377566" />
+    <state x="1583" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1585683601805">
+      <screen x="0" y="0" width="2560" height="1080" />
+    </state>
+    <state x="1583" y="239" width="672" height="678" key="search.everywhere.popup/0.0.2560.1080@0.0.2560.1080" timestamp="1585683601805" />
   </component>
   <component name="masterDetails">
     <states>

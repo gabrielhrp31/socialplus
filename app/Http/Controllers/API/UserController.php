@@ -107,18 +107,27 @@ class UserController extends Controller
         if(isset($data['image'])){
             $time = time();
             $root = 'profile';
-            $imageFolder = $root.DIRECTORY_SEPARATOR.'user'.$user->id;
+            $imageFolder = $root.DIRECTORY_SEPARATOR.'user_'.$user->id;
             $ext = substr($data['image'], 11, strpos($data['image'],';')-11);
             $imageURL = $imageFolder.DIRECTORY_SEPARATOR.$time.'.'.$ext;
 
             $file = str_replace('data:image/'.$ext.';base64,','',$data['image']);
             $file = base64_decode($file);
 
-            if(!is_dir($imageFolder)) {
-                File::makeDirectory($imageFolder, $mode = 0755, true, true);
+            if(!file_exists($root)) {
+                mkdir($root);
+            }
+            if(!file_exists($imageFolder)) {
+                mkdir($imageFolder);
             }
 
-            Storage::put($imageURL, $file, 'public');
+            file_put_contents($imageURL, $file);
+
+            if($user->image_path){
+                if(file_exists($user->image_path)){
+                    unlink($user->image_path);
+                }
+            }
 
             $user->image = $imageURL;
 
