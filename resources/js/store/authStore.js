@@ -134,7 +134,9 @@ const authStore = {
             let auxUser = localStorage.getItem("user");
             if (auxUser) {
                 state.user = JSON.parse(auxUser);
-                router.push(routeName);
+                if(router.currentRoute.path!==routeName) {
+                    router.push(routeName);
+                }
                 axios
                     .post(
                         apiUrl + "checkLogin/",
@@ -173,7 +175,9 @@ const authStore = {
                         router.push(routeName);
                     });
             } else {
-                router.push(routeName);
+                if(router.currentRoute.path!==routeName){
+                    router.push(routeName);
+                }
             }
             state.isLoading=false;
         }

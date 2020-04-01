@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3b0f73d-db01-40a9-bdc0-fdec750f9a05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/social_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/social_api.iml" afterDir="false" />
+    <list default="true" id="e3b0f73d-db01-40a9-bdc0-fdec750f9a05" name="Default Changelist" comment="alterando titulo da página">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/UserProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/UserProfile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/Home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Home/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/authStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/authStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,11 +180,24 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="D:\ProgramFiles\apps\PhpStorm\ch-0\192.6817.20\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\gabri\Documentos\SPA VueJS API Laravel\social_api\resources\lang\pt-BR" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="npm.watch">
     <configuration default="true" type="js.build_tools.npm">
@@ -331,38 +337,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="alterando titulo da página" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585684153434">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1080@0.0.2560.1080" timestamp="1585684153434" />
-    <state width="1218" height="284" key="GridCell.Tab.0.bottom" timestamp="1585685702533">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state width="1218" height="284" key="GridCell.Tab.0.bottom/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702533" />
-    <state width="1218" height="284" key="GridCell.Tab.0.center" timestamp="1585685702531">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state width="1218" height="284" key="GridCell.Tab.0.center/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702531" />
-    <state width="1218" height="284" key="GridCell.Tab.0.left" timestamp="1585685702530">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state width="1218" height="284" key="GridCell.Tab.0.left/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702530" />
-    <state width="1218" height="284" key="GridCell.Tab.0.right" timestamp="1585685702532">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state width="1218" height="284" key="GridCell.Tab.0.right/0.0.2560.1080@0.0.2560.1080" timestamp="1585685702532" />
-    <state width="299" height="606" key="HiddenNamespacesPopup" timestamp="1585684128558">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state width="299" height="606" key="HiddenNamespacesPopup/0.0.2560.1080@0.0.2560.1080" timestamp="1585684128558" />
-    <state x="917" y="371" key="com.intellij.ide.util.TipDialog" timestamp="1585682377566">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state x="917" y="371" key="com.intellij.ide.util.TipDialog/0.0.2560.1080@0.0.2560.1080" timestamp="1585682377566" />
-    <state x="1583" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1585683601805">
-      <screen x="0" y="0" width="2560" height="1080" />
-    </state>
-    <state x="1583" y="239" width="672" height="678" key="search.everywhere.popup/0.0.2560.1080@0.0.2560.1080" timestamp="1585683601805" />
+    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="1516" y="204" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1080@0.0.2560.1080" />
+    <state width="1218" height="284" key="GridCell.Tab.0.bottom" />
+    <state width="1218" height="284" key="GridCell.Tab.0.bottom/0.0.2560.1080@0.0.2560.1080" />
+    <state width="1218" height="284" key="GridCell.Tab.0.center" />
+    <state width="1218" height="284" key="GridCell.Tab.0.center/0.0.2560.1080@0.0.2560.1080" />
+    <state width="1218" height="284" key="GridCell.Tab.0.left" />
+    <state width="1218" height="284" key="GridCell.Tab.0.left/0.0.2560.1080@0.0.2560.1080" />
+    <state width="1218" height="284" key="GridCell.Tab.0.right" />
+    <state width="1218" height="284" key="GridCell.Tab.0.right/0.0.2560.1080@0.0.2560.1080" />
+    <state width="299" height="606" key="HiddenNamespacesPopup" />
+    <state width="299" height="606" key="HiddenNamespacesPopup/0.0.2560.1080@0.0.2560.1080" />
+    <state x="917" y="371" key="com.intellij.ide.util.TipDialog" />
+    <state x="917" y="371" key="com.intellij.ide.util.TipDialog/0.0.2560.1080@0.0.2560.1080" />
+    <state x="1583" y="239" width="672" height="678" key="search.everywhere.popup" />
+    <state x="1583" y="239" width="672" height="678" key="search.everywhere.popup/0.0.2560.1080@0.0.2560.1080" />
   </component>
   <component name="masterDetails">
     <states>

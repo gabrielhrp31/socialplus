@@ -47,25 +47,28 @@ export default {
     },
     methods:{
         getMore(){
-            this.$http
-                .get(
-                    this.getMoreUrl,
-                    {
-                        headers: {
-                            authorization:
-                                "Bearer " + this.$store.state.auth.user.token
+            if(this.getMoreUrl){
+                this.$http
+                    .get(
+                        this.getMoreUrl,
+                        {
+                            headers: {
+                                authorization:
+                                    "Bearer " + this.$store.state.auth.user.token
+                            }
                         }
-                    }
-                )
-                .then(response => {
-                    if(response.data.status){
-                        this.$store.commit('addTimelinePosts',response.data.posts.data);
-                        this.getMoreUrl = response.data.posts.next_page_url;
-                    }
-                })
-                .catch(error=>{
+                    )
+                    .then(response => {
+                        if(response.data.status){
+                            this.$store.commit('addTimelinePosts',response.data.posts.data);
+                            this.getMoreUrl = response.data.posts.next_page_url;
+                        }
+                        this.loadingPosts =false;
+                    })
+                    .catch(error=>{
 
-                });
+                    });
+            }
         },
         scroll(){
             window.onscroll = () => {

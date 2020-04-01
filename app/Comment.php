@@ -28,10 +28,19 @@ class Comment extends Model
         $secondsNow = (Integer) date('U');
         $seconds = (Integer) date('U', strtotime($value));
         $result =  $secondsNow - $seconds;
+
+
         if($result>86400){
+
+            $months=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+            $month = (Integer)date('n', strtotime($value));
+
+            $month = $months[$month-1];
+
             return date('d', strtotime($value))
                 .' de '
-                .date('F', strtotime($value))
+                .$month
                 .' às '
                 .date('H:i', strtotime($value));
         }else{
