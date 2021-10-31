@@ -98,5 +98,5 @@ Route::get('/testes',function (){
 //    ]);
 
 
-    return $post;
+    return $posts;
 });

@@ -1,9 +1,9 @@
 <template>
     <v-app id="app">
         <Navbar color="primary" />
-        <v-content>
+        <v-main>
             <slot></slot>
-        </v-content>
+        </v-main>
 <!--        <Footer color="accent">-->
 <!--            <v-subheader class="white&#45;&#45;text">Links</v-subheader>-->
 <!--            <v-list-item-->

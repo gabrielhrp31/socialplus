@@ -35,7 +35,6 @@ Vue.prototype.$apiUrl = apiUrl;
 
 router.afterEach((to, from) => {
     Vue.nextTick( () => {
-        console.log(to);
         document.title = to.meta.title ? store.state.appName+" - "+to.meta.title :store.state.appName;
     });
 });

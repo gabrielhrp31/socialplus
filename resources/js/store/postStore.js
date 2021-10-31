@@ -36,7 +36,7 @@ const postStore = {
             state.timelinePosts.splice(-1,1);
         },
         deleteTimelinePost(state,id) {
-            state.timelinePosts = arrayRemove(state.profilePosts, id);
+            state.timelinePosts = arrayRemove(state.timelinePosts, id);
         },
         setProfilePosts(state, posts){
             state.profilePosts = posts;

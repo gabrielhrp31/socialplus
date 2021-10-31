@@ -50,20 +50,15 @@ class PostController extends Controller
 
 //        Post::all()->last()->delete();
 
-        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(5);
+        $posts = Post::withCount('likes', 'comments')
+            ->with('user', 'likes',  'comments', 'comments.user')
+            ->leftJoin('follows','follows.follow_id','=','posts.user_id')
+            ->where('posts.user_id',$user->id)
+            ->orWhere('follows.user_id',$user->id)
+            ->orderBy('created_at', 'desc')->paginate(5);
 
 
-        foreach ($posts as $post){
-            $liked  =  DB::table('likes')->where([
-                ['user_id', '=', $user->id],
-                ['post_id', '=', $post->id]
-            ])->count();
-            if($liked){
-                $post->liked = true;
-            }else{
-                $post->liked = false;
-            }
-        }
+        $this->liked($posts,$user);
 
         return ['status'=>true, 'posts'=>$posts];
     }
@@ -78,21 +73,13 @@ class PostController extends Controller
 
         $post->delete();
 
-        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(5);
-
-
-        foreach ($posts as $post){
-            $liked  =  DB::table('likes')->where([
-                ['user_id', '=', $user->id],
-                ['post_id', '=', $post->id]
-            ])->count();
-            if($liked){
-                $post->liked = true;
-            }else{
-                $post->liked = false;
-            }
-        }
-
+        $posts = Post::withCount('likes', 'comments')
+            ->with('user', 'likes',  'comments', 'comments.user')
+            ->leftJoin('follows','follows.follow_id','=','posts.user_id')
+            ->where('posts.user_id',$user->id)
+            ->orWhere('follows.user_id',$user->id)
+            ->orderBy('created_at', 'desc')->paginate(5);
+        $this->liked($posts,$user);
         return ['status'=>true, 'posts'=>$posts];
     }
 
@@ -102,23 +89,11 @@ class PostController extends Controller
 
         $posts = Post::withCount('likes', 'comments')
             ->with('user', 'likes',  'comments', 'comments.user')
-            ->join('follows','follows.follow_id','=','posts.user_id')
-            ->where('posts.user_id',$user->id)
-            ->orWhere('follows.user_id',$user->id)
+            ->leftJoin('follows','follows.follow_id','=','posts.user_id')
+            ->where('follows.user_id',$user->id)
+            ->orWhere('posts.user_id',$user->id)
             ->orderBy('created_at', 'desc')->paginate(5);
-
-        foreach ($posts as $post){
-            $liked  =  DB::table('likes')->where([
-                ['user_id', '=', $user->id],
-                ['post_id', '=', $post->id]
-            ])->count();
-            if($liked){
-                $post->liked = $liked;
-            }else{
-                $post->liked = $liked;
-            }
-        }
-
+        $this->liked($posts,$user);
         return ['status'=>true, 'posts'=>$posts];
     }
 
@@ -188,6 +163,20 @@ class PostController extends Controller
             return ['status'=>true, 'post'=> $post];
         }else{
             return ['status'=>false, 'message'=>'O conteudo nn existe'];
+        }
+    }
+
+    private function liked($posts, $user){
+        foreach ($posts as $post){
+            $liked  =  DB::table('likes')->where([
+                ['user_id', '=', $user->id],
+                ['post_id', '=', $post->id]
+            ])->count();
+            if($liked){
+                $post->liked = $liked;
+            }else{
+                $post->liked = $liked;
+            }
         }
     }
 }
