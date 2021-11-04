@@ -6523,7 +6523,7 @@ var render = function () {
           _c(
             "v-btn",
             {
-              attrs: { icon: "" },
+              attrs: { icon: "", color: "secondary" },
               on: {
                 click: function ($event) {
                   return _vm.toggleDarkMode()

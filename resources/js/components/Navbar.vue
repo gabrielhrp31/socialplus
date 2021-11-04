@@ -77,7 +77,7 @@
             >
 
             <v-spacer></v-spacer>
-            <v-btn icon v-on:click="toggleDarkMode()">
+            <v-btn icon color="secondary" v-on:click="toggleDarkMode()">
                 <v-icon>mdi-theme-light-dark</v-icon>
             </v-btn>
         </v-app-bar>
