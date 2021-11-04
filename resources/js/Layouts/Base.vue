@@ -27,9 +27,5 @@ export default {
         Footer
     },
     data: () => ({}),
-    mounted() {
-        let dark = localStorage.getItem("dark");
-        this.$vuetify.theme.dark = !dark;
-    }
 };
 </script>

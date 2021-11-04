@@ -77,14 +77,9 @@
             >
 
             <v-spacer></v-spacer>
-            <v-switch
-                color="secondary"
-                v-model="$vuetify.theme.dark"
-                :dark="$vuetify.theme.dark"
-                @change="changeTheme"
-                inset
-                class="theme-switch"
-            />
+            <v-btn icon v-on:click="toggleDarkMode()">
+                <v-icon>mdi-theme-light-dark</v-icon>
+            </v-btn>
         </v-app-bar>
     </div>
 </template>
@@ -96,7 +91,6 @@ export default {
     data: () => ({
         drawer: null,
         item: 0,
-        goDark: false,
     }),
     computed: {
         user() {
@@ -114,8 +108,9 @@ export default {
         },
     },
     methods: {
-        changeTheme(valor){
-            localStorage.setItem("dark",valor);
+        toggleDarkMode() {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
         },
         logout() {
             this.$store.commit("logout");

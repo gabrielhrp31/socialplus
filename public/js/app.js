@@ -2012,7 +2012,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'App'
+  name: 'App',
+  mounted: function mounted() {
+    var theme = localStorage.getItem("dark_theme");
+
+    if (theme) {
+      if (theme == "true") {
+        this.$vuetify.theme.dark = true;
+      } else {
+        this.$vuetify.theme.dark = false;
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -2135,10 +2146,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {};
-  },
-  mounted: function mounted() {
-    var dark = localStorage.getItem("dark");
-    this.$vuetify.theme.dark = !dark;
   }
 });
 
@@ -2153,11 +2160,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2507,19 +2509,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navbar",
   props: ["logo", "url", "color"],
   data: function data() {
     return {
       drawer: null,
-      item: 0,
-      goDark: false
+      item: 0
     };
   },
   computed: {
@@ -2546,8 +2542,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    changeTheme: function changeTheme(valor) {
-      localStorage.setItem("dark", valor);
+    toggleDarkMode: function toggleDarkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
     },
     logout: function logout() {
       this.$store.commit("logout");
@@ -5912,23 +5909,15 @@ var render = function () {
           ),
           _vm._v(" "),
           _vm.post.image
-            ? _c(
-                "v-img",
-                { staticClass: "white--text", attrs: { src: _vm.post.image } },
-                [
-                  _c("v-card-title", { staticClass: "align-end fill-height" }, [
-                    _vm._v(_vm._s(_vm.post.title)),
-                  ]),
-                ],
-                1
-              )
-            : _c("v-card-title", [
-                _vm._v(
-                  "\n            " + _vm._s(_vm.post.title) + "\n        "
-                ),
-              ]),
+            ? _c("v-img", {
+                staticClass: "white--text",
+                attrs: { src: _vm.post.image },
+              })
+            : _vm._e(),
           _vm._v(" "),
-          _c("v-divider"),
+          _c("v-card-title", [
+            _vm._v("\n            " + _vm._s(_vm.post.title) + "\n        "),
+          ]),
           _vm._v(" "),
           _c("v-card-text", [
             _c("p", [_vm._v(_vm._s(_vm.post.text))]),
@@ -6531,22 +6520,19 @@ var render = function () {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c("v-switch", {
-            staticClass: "theme-switch",
-            attrs: {
-              color: "secondary",
-              dark: _vm.$vuetify.theme.dark,
-              inset: "",
-            },
-            on: { change: _vm.changeTheme },
-            model: {
-              value: _vm.$vuetify.theme.dark,
-              callback: function ($$v) {
-                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
+          _c(
+            "v-btn",
+            {
+              attrs: { icon: "" },
+              on: {
+                click: function ($event) {
+                  return _vm.toggleDarkMode()
+                },
               },
-              expression: "$vuetify.theme.dark",
             },
-          }),
+            [_c("v-icon", [_vm._v("mdi-theme-light-dark")])],
+            1
+          ),
         ],
         1
       ),
@@ -71371,7 +71357,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 /* harmony default export */ __webpack_exports__["default"] = (new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
   theme: {
-    dark: false,
+    dark: true,
     themes: {
       light: {
         primary: '#ee343c',
