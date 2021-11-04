@@ -2135,6 +2135,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {};
+  },
+  mounted: function mounted() {
+    var dark = localStorage.getItem("dark");
+    this.$vuetify.theme.dark = !dark;
   }
 });
 
@@ -2508,14 +2512,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navbar",
   props: ["logo", "url", "color"],
   data: function data() {
     return {
       drawer: null,
-      item: 0
+      item: 0,
+      goDark: false
     };
   },
   computed: {
@@ -2538,11 +2542,13 @@ __webpack_require__.r(__webpack_exports__);
       }];
     },
     appName: function appName() {
-      console.log(this.$store);
       return this.$store.state.appName;
     }
   },
   methods: {
+    changeTheme: function changeTheme(valor) {
+      localStorage.setItem("dark", valor);
+    },
     logout: function logout() {
       this.$store.commit("logout");
     },
@@ -6530,10 +6536,9 @@ var render = function () {
             attrs: {
               color: "secondary",
               dark: _vm.$vuetify.theme.dark,
-              "true-value": "dark",
-              "false-value": "light",
               inset: "",
             },
+            on: { change: _vm.changeTheme },
             model: {
               value: _vm.$vuetify.theme.dark,
               callback: function ($$v) {
@@ -71366,6 +71371,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 /* harmony default export */ __webpack_exports__["default"] = (new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
   theme: {
+    dark: false,
     themes: {
       light: {
         primary: '#ee343c',
@@ -71388,16 +71394,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
         success: '#4CAF50',
         warning: '#FFC107',
         danger: '#d0060e'
-      }
-    },
-    options: {
-      themeCache: {
-        get: function get(key) {
-          return localStorage.getItem(key);
-        },
-        set: function set(key, value) {
-          return localStorage.setItem(key, value);
-        }
       }
     }
   },

@@ -6,6 +6,7 @@ Vue.use(Vuetify);
 
 export default new Vuetify({
   theme: {
+      dark:false,
       themes: {
           light: {
               primary: '#ee343c',
@@ -28,12 +29,6 @@ export default new Vuetify({
               success: '#4CAF50',
               warning: '#FFC107',
               danger: '#d0060e',
-          },
-      },
-      options: {
-          themeCache: {
-              get: key => localStorage.getItem(key),
-              set: (key, value) => localStorage.setItem(key, value),
           },
       },
   },

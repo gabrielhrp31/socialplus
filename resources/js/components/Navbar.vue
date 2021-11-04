@@ -81,8 +81,7 @@
                 color="secondary"
                 v-model="$vuetify.theme.dark"
                 :dark="$vuetify.theme.dark"
-                true-value="dark"
-                false-value="light"
+                @change="changeTheme"
                 inset
                 class="theme-switch"
             />
@@ -97,6 +96,7 @@ export default {
     data: () => ({
         drawer: null,
         item: 0,
+        goDark: false,
     }),
     computed: {
         user() {
@@ -110,11 +110,13 @@ export default {
             ]
         },
         appName(){
-            console.log(this.$store);
             return this.$store.state.appName;
         },
     },
     methods: {
+        changeTheme(valor){
+            localStorage.setItem("dark",valor);
+        },
         logout() {
             this.$store.commit("logout");
         },
