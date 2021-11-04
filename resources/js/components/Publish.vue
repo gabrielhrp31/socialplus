@@ -11,7 +11,7 @@
             <v-flex
                 xs12
                 id="publish-content"
-                :style="'background-color: white;border-color:' + primary + ';'"
+                :style="'border-color:' + primary + ';'"
             >
                 <v-text-field
                     v-model="post.title"

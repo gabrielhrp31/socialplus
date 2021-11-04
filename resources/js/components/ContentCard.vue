@@ -200,6 +200,6 @@ export default {
 <style scoped>
     .name{
         text-decoration: none!important;
-        color: #000;
+        /*color: #000;*/
     }
 </style>

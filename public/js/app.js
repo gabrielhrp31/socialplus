@@ -2500,6 +2500,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navbar",
   props: ["logo", "url", "color"],
@@ -3607,7 +3616,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.name[data-v-7a937d8e]{\n    text-decoration: none!important;\n    color: #000;\n}\n", ""]);
+exports.push([module.i, "\n.name[data-v-7a937d8e]{\n    text-decoration: none!important;\n    /*color: #000;*/\n}\n", ""]);
 
 // exports
 
@@ -3626,7 +3635,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nspan[data-v-6dde423b] {\n    position: absolute;\n    cursor: pointer;\n    top: 10px;\n    right: 20px;\n}\n", ""]);
+exports.push([module.i, "\nspan[data-v-6dde423b] {\n    position: absolute;\n    cursor: pointer;\n    top: 10px;\n    right: 20px;\n}\n.theme-switch[data-v-6dde423b]{\n    height: 100%;\n    display: flex;\n    align-items: center;\n}\n[data-v-6dde423b] .theme-switch .v-messages{\n    display: none;\n}\n", ""]);
 
 // exports
 
@@ -6515,6 +6524,24 @@ var render = function () {
           ),
           _vm._v(" "),
           _c("v-spacer"),
+          _vm._v(" "),
+          _c("v-switch", {
+            staticClass: "theme-switch",
+            attrs: {
+              color: "secondary",
+              dark: _vm.$vuetify.theme.dark,
+              "true-value": "dark",
+              "false-value": "light",
+              inset: "",
+            },
+            model: {
+              value: _vm.$vuetify.theme.dark,
+              callback: function ($$v) {
+                _vm.$set(_vm.$vuetify.theme, "dark", $$v)
+              },
+              expression: "$vuetify.theme.dark",
+            },
+          }),
         ],
         1
       ),
@@ -6579,8 +6606,7 @@ var render = function () {
           _c(
             "v-flex",
             {
-              style:
-                "background-color: white;border-color:" + _vm.primary + ";",
+              style: "border-color:" + _vm.primary + ";",
               attrs: { xs12: "", id: "publish-content" },
             },
             [
@@ -71351,6 +71377,27 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
         success: '#4CAF50',
         warning: '#FFC107',
         danger: '#d0060e'
+      },
+      dark: {
+        primary: '#ee343c',
+        secondary: '#ffffff',
+        black: '#000000',
+        accent: '#2e53e6',
+        error: '#FF5252',
+        info: '#2196F3',
+        success: '#4CAF50',
+        warning: '#FFC107',
+        danger: '#d0060e'
+      }
+    },
+    options: {
+      themeCache: {
+        get: function get(key) {
+          return localStorage.getItem(key);
+        },
+        set: function set(key, value) {
+          return localStorage.setItem(key, value);
+        }
       }
     }
   },

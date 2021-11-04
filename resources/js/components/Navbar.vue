@@ -77,6 +77,15 @@
             >
 
             <v-spacer></v-spacer>
+            <v-switch
+                color="secondary"
+                v-model="$vuetify.theme.dark"
+                :dark="$vuetify.theme.dark"
+                true-value="dark"
+                false-value="light"
+                inset
+                class="theme-switch"
+            />
         </v-app-bar>
     </div>
 </template>
@@ -125,5 +134,14 @@ span {
     cursor: pointer;
     top: 10px;
     right: 20px;
+}
+
+.theme-switch{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+>>> .theme-switch .v-messages{
+    display: none;
 }
 </style>
