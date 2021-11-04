@@ -22,15 +22,10 @@
                     <v-btn icon color="primary" @click="deletePost"><v-icon>mdi-delete</v-icon></v-btn>
                 </v-list-item-icon>
             </v-list-item>
-            <v-img v-if="post.image" class="white--text" :src="post.image">
-                <v-card-title class="align-end fill-height">{{
-                    post.title
-                }}</v-card-title>
-            </v-img>
-            <v-card-title v-else>
+            <v-img v-if="post.image" class="white--text" :src="post.image" />
+            <v-card-title>
                 {{ post.title }}
             </v-card-title>
-            <v-divider></v-divider>
             <v-card-text>
                 <p>{{ post.text }}</p>
                 <p v-if="post.link">
