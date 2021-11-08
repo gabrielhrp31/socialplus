@@ -14,9 +14,10 @@
                 </v-flex>
             </v-layout>
             <v-layout class="ma-8">
-                <v-flex xs2 lg1 offset-lg2>
+                <v-flex xs2 lg1 offset-lg2 class="pr-4">
                     <v-img
                         :src="user.image"
+
                     ></v-img>
                 </v-flex>
                 <v-flex xs10 lg5 offset-lg1>
@@ -85,6 +86,12 @@
                             :disabled="!edit"
                         ></v-text-field>
                         <v-btn
+                            class="float-left"
+                            @click="logout"
+                            color="danger"
+                            >Sair</v-btn
+                        >
+                        <v-btn
                             class="float-right"
                             v-if="!edit"
                             @click="edit = true"
@@ -137,6 +144,9 @@ export default {
         save() {
             this.edit = false;
             this.$store.commit("updateProfile");
+        },
+        logout() {
+            this.$store.commit("logout");
         }
     },
     created() {

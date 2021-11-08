@@ -2136,6 +2136,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2509,6 +2511,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Navbar",
   props: ["logo", "url", "color"],
@@ -2533,7 +2561,7 @@ __webpack_require__.r(__webpack_exports__);
         link: "/user/".concat(this.user.id)
       }, {
         text: "Procurar",
-        icon: "mdi-account-search",
+        icon: "mdi-account-heart",
         link: "/find/user/"
       }];
     },
@@ -2545,9 +2573,6 @@ __webpack_require__.r(__webpack_exports__);
     toggleDarkMode: function toggleDarkMode() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
-    },
-    logout: function logout() {
-      this.$store.commit("logout");
     },
     getLink: function getLink(item) {
       if (item.link === '/user/') {
@@ -3314,6 +3339,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Profile",
@@ -3346,6 +3378,9 @@ __webpack_require__.r(__webpack_exports__);
     save: function save() {
       this.edit = false;
       this.$store.commit("updateProfile");
+    },
+    logout: function logout() {
+      this.$store.commit("logout");
     }
   },
   created: function created() {
@@ -3638,7 +3673,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nspan[data-v-6dde423b] {\n    position: absolute;\n    cursor: pointer;\n    top: 10px;\n    right: 20px;\n}\n.theme-switch[data-v-6dde423b]{\n    height: 100%;\n    display: flex;\n    align-items: center;\n}\n[data-v-6dde423b] .theme-switch .v-messages{\n    display: none;\n}\n", ""]);
+exports.push([module.i, "\nspan[data-v-6dde423b] {\n    position: absolute;\n    cursor: pointer;\n    top: 10px;\n    right: 20px;\n}\n.theme-switch[data-v-6dde423b]{\n    height: 100%;\n    display: flex;\n    align-items: center;\n}\n[data-v-6dde423b] .adaptative-width{\n    display: flex;\n    height: 100%;\n    max-width: 100%;\n    align-items: flex-end;\n}\n[data-v-6dde423b] .adaptative-width .v-tabs,[data-v-6dde423b] .adaptative-width .v-tabs .v-tabs-bar{\n    height: 100%;\n}\n[data-v-6dde423b] .theme-switch .v-messages{\n    display: none;\n}\n[data-v-6dde423b] .v-toolbar__content{\n    padding: 0!important;\n}\n", ""]);
 
 // exports
 
@@ -5806,7 +5841,7 @@ var render = function () {
     [
       _c("Navbar", { attrs: { color: "primary" } }),
       _vm._v(" "),
-      _c("v-main", [_vm._t("default")], 2),
+      _c("v-main", [_c("v-container", [_vm._t("default")], 2)], 1),
     ],
     1
   )
@@ -6346,138 +6381,6 @@ var render = function () {
     { attrs: { id: "navbarRoot" } },
     [
       _c(
-        "v-navigation-drawer",
-        {
-          attrs: { app: "", "expand-on-hover": true, width: "200" },
-          model: {
-            value: _vm.drawer,
-            callback: function ($$v) {
-              _vm.drawer = $$v
-            },
-            expression: "drawer",
-          },
-        },
-        [
-          _c(
-            "v-list",
-            [
-              _c(
-                "v-list-item",
-                { staticClass: "px-0 d-flex justify-center" },
-                [
-                  _c(
-                    "v-list-item-avatar",
-                    [_c("v-img", { attrs: { src: _vm.user.image } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-item",
-                { attrs: { link: "", to: "/profile" } },
-                [
-                  _c(
-                    "v-list-item-content",
-                    [
-                      _c("v-list-item-title", { staticClass: "title" }, [
-                        _vm._v(_vm._s(_vm.user.name)),
-                      ]),
-                      _vm._v(" "),
-                      _c("v-list-item-subtitle", [
-                        _vm._v(_vm._s(_vm.user.email)),
-                      ]),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("v-divider"),
-          _vm._v(" "),
-          _c(
-            "v-list",
-            { attrs: { nav: "", dense: "" } },
-            [
-              _c(
-                "v-list-item-group",
-                {
-                  attrs: { color: "primary" },
-                  model: {
-                    value: _vm.item,
-                    callback: function ($$v) {
-                      _vm.item = $$v
-                    },
-                    expression: "item",
-                  },
-                },
-                [
-                  _vm._l(_vm.items, function (item, i) {
-                    return _c(
-                      "v-list-item",
-                      {
-                        key: i,
-                        attrs: { to: item.link ? _vm.getLink(item) : "#" },
-                      },
-                      [
-                        _c(
-                          "v-list-item-icon",
-                          [
-                            _c("v-icon", {
-                              domProps: { textContent: _vm._s(item.icon) },
-                            }),
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-list-item-content",
-                          [
-                            _c("v-list-item-title", {
-                              domProps: { textContent: _vm._s(item.text) },
-                            }),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    )
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item",
-                    { on: { click: _vm.logout } },
-                    [
-                      _c(
-                        "v-list-item-icon",
-                        [_c("v-icon", [_vm._v("mdi-arrow-left")])],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item-content",
-                        [_c("v-list-item-title", [_vm._v("Sair")])],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                2
-              ),
-            ],
-            1
-          ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
         "v-app-bar",
         {
           attrs: {
@@ -6489,48 +6392,113 @@ var render = function () {
           },
         },
         [
-          _c("v-app-bar-nav-icon", {
-            staticClass: "hidden-lg-and-up",
-            on: {
-              click: function ($event) {
-                $event.stopPropagation()
-                _vm.drawer = !_vm.drawer
-              },
-            },
-          }),
-          _vm._v(" "),
           _c(
-            "v-toolbar-title",
+            "v-container",
+            { staticClass: "fill-height py-0" },
             [
               _c(
-                "v-btn",
+                "v-row",
                 {
-                  attrs: {
-                    text: "",
-                    color: "secondary",
-                    ripple: false,
-                    to: _vm.url || "/",
-                  },
+                  staticClass: "fill-height",
+                  attrs: { "no-gutters": "", align: "center" },
                 },
-                [_vm._v(_vm._s(_vm.appName))]
+                [
+                  _c(
+                    "v-toolbar-title",
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: {
+                            text: "",
+                            color: "secondary",
+                            ripple: false,
+                            to: _vm.url || "/",
+                          },
+                        },
+                        [_vm._v(_vm._s(_vm.appName))]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "adaptative-width" },
+                    [
+                      _c(
+                        "v-tabs",
+                        {
+                          attrs: {
+                            "background-color": "primary",
+                            centered: "",
+                            dark: "",
+                          },
+                        },
+                        [
+                          _c("v-tabs-slider"),
+                          _vm._v(" "),
+                          _vm._l(_vm.items, function (item, i) {
+                            return [
+                              _c(
+                                "v-tab",
+                                {
+                                  key: i,
+                                  attrs: {
+                                    to: item.link ? _vm.getLink(item) : "#",
+                                  },
+                                },
+                                [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
+                                1
+                              ),
+                            ]
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "v-tab",
+                            { attrs: { to: "/profile" } },
+                            [
+                              _c(
+                                "v-avatar",
+                                { attrs: { size: "36" } },
+                                [
+                                  _c("v-img", {
+                                    attrs: { src: _vm.user.image },
+                                  }),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        2
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { icon: "", color: "secondary" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.toggleDarkMode()
+                        },
+                      },
+                    },
+                    [_c("v-icon", [_vm._v("mdi-theme-light-dark")])],
+                    1
+                  ),
+                ],
+                1
               ),
             ],
-            1
-          ),
-          _vm._v(" "),
-          _c("v-spacer"),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              attrs: { icon: "", color: "secondary" },
-              on: {
-                click: function ($event) {
-                  return _vm.toggleDarkMode()
-                },
-              },
-            },
-            [_c("v-icon", [_vm._v("mdi-theme-light-dark")])],
             1
           ),
         ],
@@ -7493,7 +7461,10 @@ var render = function () {
             [
               _c(
                 "v-flex",
-                { attrs: { xs2: "", lg1: "", "offset-lg2": "" } },
+                {
+                  staticClass: "pr-4",
+                  attrs: { xs2: "", lg1: "", "offset-lg2": "" },
+                },
                 [_c("v-img", { attrs: { src: _vm.user.image } })],
                 1
               ),
@@ -7629,6 +7600,16 @@ var render = function () {
                           expression: "user.password_confirmation",
                         },
                       }),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "float-left",
+                          attrs: { color: "danger" },
+                          on: { click: _vm.logout },
+                        },
+                        [_vm._v("Sair")]
+                      ),
                       _vm._v(" "),
                       !_vm.edit
                         ? _c(

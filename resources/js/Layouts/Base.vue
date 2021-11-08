@@ -2,7 +2,9 @@
     <v-app id="app">
         <Navbar color="primary" />
         <v-main>
-            <slot></slot>
+            <v-container >
+                <slot></slot>
+            </v-container>
         </v-main>
 <!--        <Footer color="accent">-->
 <!--            <v-subheader class="white&#45;&#45;text">Links</v-subheader>-->
