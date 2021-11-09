@@ -4,6 +4,7 @@
         <v-main>
             <v-container >
                 <slot></slot>
+                <div class="padding-bottom-bar d-flex d-lg-none"></div>
             </v-container>
         </v-main>
 <!--        <Footer color="accent">-->
@@ -31,3 +32,9 @@ export default {
     data: () => ({}),
 };
 </script>
+
+<style scoped>
+    .padding-bottom-bar{
+        height: 80px;
+    }
+</style>

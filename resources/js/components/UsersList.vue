@@ -1,5 +1,5 @@
 <template>
-    <div id="usersList">
+    <div id="usersList" v-if="users.length">
         <v-list>
 
             <v-list-item

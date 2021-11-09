@@ -13,11 +13,11 @@
                     </v-alert>
                 </v-flex>
             </v-layout>
-            <v-layout class="ma-8">
-                <v-flex xs2 lg1 offset-lg2 class="pr-4">
+            <v-row class="ma-8" align="center" justify="center">
+                <v-flex xs8 lg4 offset-lg2 class="pr-lg-4 mb-4 mb-lg-0">
                     <v-img
+                        class="img-profile"
                         :src="user.image"
-
                     ></v-img>
                 </v-flex>
                 <v-flex xs10 lg5 offset-lg1>
@@ -88,8 +88,16 @@
                         <v-btn
                             class="float-left"
                             @click="logout"
-                            color="danger"
-                            >Sair</v-btn
+                            color="error"
+                            >
+                            Sair
+                            <v-icon
+                                right
+                                dark
+                                class="ml-2"
+                            >
+                                mdi-logout
+                            </v-icon></v-btn
                         >
                         <v-btn
                             class="float-right"
@@ -107,7 +115,7 @@
                         >
                     </v-form>
                 </v-flex>
-            </v-layout>
+            </v-row>
         </Base>
     </div>
 </template>
@@ -159,4 +167,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+    >>> .img-profile{
+        border-radius: 8px;
+    }
+
+</style>

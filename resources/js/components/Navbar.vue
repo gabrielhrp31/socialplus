@@ -78,7 +78,7 @@
                     ></v-toolbar-title
                     >
                     <v-spacer></v-spacer>
-                    <div class="adaptative-width">
+                    <div class="adaptative-width d-none d-sm-flex">
                         <v-tabs
                             background-color="primary"
                             centered
@@ -102,11 +102,33 @@
                     </div>
                     <v-spacer></v-spacer>
                     <v-btn icon color="secondary" v-on:click="toggleDarkMode()">
-                        <v-icon>mdi-theme-light-dark</v-icon>
+                        <v-icon >mdi-theme-light-dark</v-icon>
                     </v-btn>
                 </v-row>
             </v-container>
         </v-app-bar>
+        <div class="bottom-bar d-flex d-sm-none">
+            <v-tabs
+                background-color="primary"
+                centered
+                dark
+            >
+                <v-tabs-slider></v-tabs-slider>
+                <template
+                    v-for="(item, i) in items"
+
+                >
+                    <v-tab :key="i" :to="item.link ? getLink(item) : '#'">
+                        <v-icon size="36">{{ item.icon }}</v-icon>
+                    </v-tab>
+                </template>
+                <v-tab to="/profile">
+                    <v-avatar size="36">
+                        <v-img :src="user.image"></v-img>
+                    </v-avatar>
+                </v-tab>
+            </v-tabs>
+        </div>
     </div>
 </template>
 
@@ -162,7 +184,8 @@ span {
     align-items: center;
 }
 
->>> .adaptative-width{
+
+>>>.adaptative-width{
     display: flex;
     height: 100%;
     max-width: 100%;
@@ -170,6 +193,16 @@ span {
 }
 >>> .adaptative-width .v-tabs, >>> .adaptative-width .v-tabs .v-tabs-bar{
     height: 100%;
+}
+
+>>>.bottom-bar{
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+}
+>>>.bottom-bar .v-tabs .v-tabs-bar{
+    height: 80px;
 }
 
 >>> .theme-switch .v-messages{

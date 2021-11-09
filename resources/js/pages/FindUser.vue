@@ -2,10 +2,10 @@
     <div id="findUser">
         <Base>
             <v-layout align-center justify-center row class="ma-8">
-                <v-flex xs8 lg10>
+                <v-flex xs12 lg10>
                     <v-text-field v-model="search" placeholder="Pesquise por Email ou Nome" @keypress.enter="find"></v-text-field>
                 </v-flex>
-                <v-flex xs4 lg2 class="pa-4">
+                <v-flex xs12 lg2 class="pa-lg-4">
                     <v-btn block color="primary" @click="find"><v-icon>mdi-account-search</v-icon> Pesquisar</v-btn>
                 </v-flex>
             </v-layout>
