@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3b0f73d-db01-40a9-bdc0-fdec750f9a05" name="Default Changelist" comment="Ajustes bottom bar e responsividade">
+    <list default="true" id="e3b0f73d-db01-40a9-bdc0-fdec750f9a05" name="Default Changelist" comment="mudando icones do modo dark">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Navbar.vue" afterDir="false" />
     </list>
@@ -276,7 +275,7 @@
       <workItem from="1636056404845" duration="6241000" />
       <workItem from="1636391724840" duration="5277000" />
       <workItem from="1636427146816" duration="3423000" />
-      <workItem from="1636582111935" duration="278000" />
+      <workItem from="1636582111935" duration="1548000" />
     </task>
     <task id="LOCAL-00001" summary="mudando link para o de produção">
       <created>1565752233063</created>
@@ -383,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636429995075</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ajustando tamanho da bottom bar">
+      <created>1636582494860</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1636582494860</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +423,9 @@
     <MESSAGE value="Better Theme Button Visibility" />
     <MESSAGE value="Novo modelo de navegação pela navbar" />
     <MESSAGE value="Ajustes bottom bar e responsividade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes bottom bar e responsividade" />
+    <MESSAGE value="ajustando tamanho da bottom bar" />
+    <MESSAGE value="mudando icones do modo dark" />
+    <option name="LAST_COMMIT_MESSAGE" value="mudando icones do modo dark" />
   </component>
   <component name="masterDetails">
     <states>

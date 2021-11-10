@@ -43,7 +43,7 @@
                     </div>
                     <v-spacer></v-spacer>
                     <v-btn icon color="secondary" v-on:click="toggleDarkMode()">
-                        <v-icon >mdi-theme-light-dark</v-icon>
+                        <v-icon >{{ $vuetify.theme.dark?'mdi-white-balance-sunny':'mdi-moon-waning-crescent' }}</v-icon>
                     </v-btn>
                 </v-row>
             </v-container>
